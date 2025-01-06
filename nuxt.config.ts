@@ -20,4 +20,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/Lunalock-FE/', // Add the subdirectory path for GitHub Pages
   },
+  nitro: {
+    preset: 'static', // Ensure Nuxt generates static files for GitHub Pages
+  },
 })
