@@ -17,4 +17,7 @@ export default defineNuxtConfig({
     '@/assets/styles/variables.css',
     'quasar/dist/quasar.css'
   ],
+  app: {
+    baseURL: '/Lunalock-FE/', // Add the subdirectory path for GitHub Pages
+  },
 })
