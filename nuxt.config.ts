@@ -17,10 +17,10 @@ export default defineNuxtConfig({
     '@/assets/styles/variables.css',
     'quasar/dist/quasar.css'
   ],
-  app: {
-    baseURL: '/Lunalock-FE/', // Add the subdirectory path for GitHub Pages
-  },
   nitro: {
     preset: 'static', // Ensure Nuxt generates static files for GitHub Pages
+    output: {
+      publicDir: './dist',
+    },
   },
 })
