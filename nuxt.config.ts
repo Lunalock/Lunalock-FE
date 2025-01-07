@@ -15,7 +15,8 @@ export default defineNuxtConfig({
   css: [
     '@/assets/styles/main.css', 
     '@/assets/styles/variables.css',
-    'quasar/dist/quasar.css'
+    'quasar/dist/quasar.css',
+    "@/assets/styles/tailwind.css", 
   ],
   app: {
     baseURL: '/Lunalock-FE/', // Add the subdirectory path for GitHub Pages
@@ -24,6 +25,12 @@ export default defineNuxtConfig({
     preset: 'static', // Ensure Nuxt generates static files for GitHub Pages
     output: {
       publicDir: './dist', // Ensure Nuxt outputs to 'dist'
+    },
+  },
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
     },
   },
 })

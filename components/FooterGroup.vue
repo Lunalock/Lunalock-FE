@@ -17,8 +17,8 @@ const navigateTo = (route: string) => {
 </script>
 
 <template>
-  <q-footer class="footer-container bg-gray-950">
-    <q-tabs class="w-full justify-around text-purple-300" dense>
+  <q-footer class="footer-container">
+    <q-tabs class="w-full justify-around" dense>
       <q-tab
         v-for="(link, index) in navLinks"
         :key="index"

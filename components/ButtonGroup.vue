@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const buttons = [
-  { label: "Track Symptoms", icon: "add", action: () => console.log("Track Symptoms clicked!") },
-  { label: "Add Notes", icon: "note_alt", action: () => console.log("Add Notes clicked!") }
+  { label: "Track Symptoms", icon: "add", route: '/symptoms', action: () => console.log("Track Symptoms clicked!") },
+  { label: "Add Notes", icon: "note_alt", route: "/", action: () => console.log("Add Notes clicked!") }
 ];
 </script>
 
@@ -13,6 +13,7 @@ const buttons = [
         :key="index"
         rounded
         class="track-add-buttons"
+        :to="button.route"
         :label="button.label"
         :icon="button.icon"
         @click="button.action"

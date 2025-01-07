@@ -92,7 +92,6 @@
     --color-info-900: #1e3a8a;
     --color-info-focus: #2563eb;
     --color-info-content: #ffffff;
-
     --color-success: #10b981;
     --color-success-50: #ecfdf5;
     --color-success-100: #d1fae5;
@@ -132,6 +131,7 @@
     --color-error-900: #7f1d1d;
     --color-error-focus: #dc2626;
     --color-error-content: #ffffff;
-    --color-auxiliary: #262649;
+    --color-auxiliary: rgba(45, 55, 72, 0.5);
+    /* --color-auxiliary: #262649; */
     --color-tertiary: #38384A;
 }

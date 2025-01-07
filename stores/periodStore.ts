@@ -13,7 +13,8 @@ interface Mood {
 export const usePeriodStore = defineStore('period', {
   state: () => ({
     periods: [] as Period[],
-    moods: [] as Mood[]
+    moods: [] as Mood[],
+    selectedDate: new Date()
   }),
   actions: {
     async fetchPeriods() {
@@ -35,6 +36,9 @@ export const usePeriodStore = defineStore('period', {
     },
     addMood(mood: Mood) {
       this.moods.push(mood);
+    },
+    setDate(date: Date){
+      this.selectedDate = date
     }
   }
 })

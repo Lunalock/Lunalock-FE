@@ -71,11 +71,6 @@ const stats = [
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.stat-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
 .stat-content {
   display: flex;
   flex-direction: column;
