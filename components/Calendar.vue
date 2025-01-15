@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { usePeriodStore } from "#imports";
 
 const periodStore = usePeriodStore()
-// Current date
+
 const selectedDate = ref(new Date());
 
 watch(selectedDate, (newDate: Date) => {
@@ -37,7 +37,7 @@ function getDateClass(date: string) {
 <template>
     <q-card class="calendar-card q-pa-md">
         <q-date v-model="selectedDate" mask="YYYY-MM-DD" :options="(date) => true" :class-fn="getDateClass"
-            first-day-of-week="1" bordered year flat class="bg-transparent calendar-full" minimal/>
+            first-day-of-week="1" bordered year flat class="bg-transparent calendar-full" minimal />
     </q-card>
 </template>
 

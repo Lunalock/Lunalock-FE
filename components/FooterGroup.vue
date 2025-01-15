@@ -7,13 +7,13 @@ const currentRoute = router.currentRoute
 
 // Split nav items between left and right
 const leftNavLinks = [
-  { label: 'Home', icon: 'home', route: '/' },
-  { label: 'Stats', icon: 'analytics', route: '/stats' },
+  { icon: 'home', route: '/' },
+  { icon: 'analytics', route: '/stats' },
 ]
 
 const rightNavLinks = [
-  { label: 'Calendar', icon: 'event', route: '/calendar' },
-  { label: 'Settings', icon: 'settings', route: '/settings' },
+  { icon: 'event', route: '/calendar' },
+  { icon: 'settings', route: '/settings' },
 ]
 
 // Dummy state to indicate whether a period is active
@@ -50,7 +50,6 @@ const togglePeriod = () => {
               ]"
             >
               <q-icon :name="link.icon" class="fa-solid fa-chart-simple text-xl footer-icon" />
-              <span class="footer-label">{{ link.label }}</span>
             </div>
           </template>
         </q-tab>
@@ -73,7 +72,6 @@ const togglePeriod = () => {
               ]"
             >
               <q-icon :name="link.icon" class="fa-solid fa-chart-simple text-xl footer-icon" />
-              <span class="footer-label">{{ link.label }}</span>
             </div>
           </template>
         </q-tab>
@@ -139,8 +137,8 @@ const togglePeriod = () => {
 }
 
 .footer-icon{
-  font-size: 32px;
-  margin-top: 12px;
+  font-size: 36px;
+  margin-top: 18px;
   
 }
 @media (max-width: 368px) {
