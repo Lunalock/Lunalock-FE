@@ -24,8 +24,8 @@ onMounted(async () => {
 
 <template>
   <q-layout>
+    <HeaderTop />
     <q-page-container>
-      <HeaderTop />
       <q-page class="q-pa-md">
         <Statistics />
         <Calendar />
@@ -37,8 +37,8 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-::v-deep(.q-page-container){
+::v-deep(.q-page-container) {
   padding-bottom: 36px !important;
+  max-width: 800px;
 }
-
 </style>
