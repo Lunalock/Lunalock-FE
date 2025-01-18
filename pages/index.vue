@@ -23,22 +23,10 @@ onMounted(async () => {
 </script>
 
 <template>
-  <q-layout>
-    <HeaderTop />
-    <q-page-container>
-      <q-page class="q-pa-md">
-        <Statistics />
-        <Calendar />
-        <ButtonGroup />
-      </q-page>
-      <FooterGroup />
-    </q-page-container>
-  </q-layout>
+  <Statistics />
+  <Calendar />
+  <ButtonGroup />
 </template>
 
 <style scoped>
-::v-deep(.q-page-container) {
-  padding-bottom: 36px !important;
-  max-width: 800px;
-}
 </style>

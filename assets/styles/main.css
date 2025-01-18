@@ -1,5 +1,4 @@
 body {
-
     background-color: var(--color-background-dark, 0.95); 
     color: var(--color-text-light); 
     font-family: 'Roboto', sans-serif; 
@@ -10,6 +9,6 @@ body {
   
   #app {
     background-color: var(--color-background-dark, 0.95 ); 
-    min-height: 100vh; 
+    min-height: 100vh;
   }
   
