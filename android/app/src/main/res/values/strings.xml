@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">lunalock</string>
+    <string name="title_activity_main">lunalock</string>
+    <string name="package_name">app.lunalock.lunalock</string>
+    <string name="custom_url_scheme">app.lunalock.lunalock</string>
+</resources>
