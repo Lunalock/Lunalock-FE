@@ -4,7 +4,11 @@ const config: Config = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   prefix: 'tw-',
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        darkFooterBg: '#ff0000',
+      },
+    },
   },
   plugins: [],
 }

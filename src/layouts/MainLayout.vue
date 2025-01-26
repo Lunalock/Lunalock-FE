@@ -4,7 +4,7 @@ import FooterGroup from 'src/components/FooterGroup.vue';
 </script>
 
 <template>
-  <q-layout view="hhh lpr fFf">
+  <q-layout view="hhh lpr fFf" class="bg-gray-950 text-white">
     <HeaderTop />
 
     <q-page-container>

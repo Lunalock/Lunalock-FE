@@ -19,24 +19,31 @@ const togglePeriod = () => {
 </script>
 
 <template>
-  <q-footer id="foo">
+  <q-footer id="footer-bottom" class="bg-darkFooterBg">
     <div class="flex justify-between items-center mx-auto max-w-sm ">
       <div>
-        <q-btn v-for="(link, index) in leftNavLinks" :flat=true class="fa-solid fa-chart-simple text-xl"
-          :icon="link.icon" :key="index" />
+        <q-btn v-for="(link, index) in leftNavLinks" :flat=true :icon="link.icon" :key="index" size="lg" />
       </div>
 
       <div>
-        <q-btn round class="fa-solid fa-moon text-xl -rotate-12 -top-4 bg-gradient-to-r from-indigo-700 to-purple-700"
-          :icon="isPeriodActive ? 'pause' : 'nightlight_round'" @click="togglePeriod" />
+        <q-btn round size="lg" class="-top-4 gradient-btn" :icon="isPeriodActive ? 'pause' : 'nightlight_round'"
+          @click="togglePeriod" />
       </div>
 
       <div>
-        <q-btn v-for="(link, index) in rightNavLinks" :key="index" :flat=true class="fa-solid fa-chart-simple text-xl"
-          :icon="link.icon" />
+        <q-btn v-for="(link, index) in rightNavLinks" :key="index" :flat=true :icon="link.icon" size="lg" />
       </div>
     </div>
   </q-footer>
 </template>
 
-<style scoped></style>
+<style scoped>
+::v-deep(.gradient-btn) {
+  background-image: linear-gradient(to right, #4f46e5, #8b5cf6);
+  /* Indigo to purple */
+}
+
+#footer-bottom {
+  background-color: #111827 !important;
+}
+</style>

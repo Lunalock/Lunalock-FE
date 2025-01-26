@@ -4,11 +4,11 @@
 
 <template>
   <q-header class="q-mx-auto header">
-    <q-toolbar class="justify-between">
+    <q-toolbar class="justify-between mb-4 mt-4">
       <div class="gradient-text">
-        <h1>
-        LunaLock
-        </h1>
+        <h5 class="text-2xl font-bold">
+          LunaLock
+        </h5>
       </div>
 
       <q-btn class="icon-button" :unelevated=true>
@@ -31,9 +31,9 @@
 }
 
 .gradient-text {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
-  background: linear-gradient(90deg, #B18EEA, #F497B6); 
+  background: linear-gradient(90deg, #B18EEA, #F497B6);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
