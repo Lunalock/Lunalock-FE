@@ -1,1 +1,14 @@
 // app global css in SCSS form
+body {
+  background-color: var(--color-background-dark, 0.95);
+  color: var(--color-text-light);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#app {
+  background-color: var(--color-background-dark, 0.95);
+  min-height: 100vh;
+}
