@@ -106,14 +106,11 @@ const goBack = () => {
             </div>
           </div>
           <div class="flex gap-4">
-            <q-btn flat unelevated label="Discard" no-caps
-              class="flex-1 py-3 hover:bg-gray-800/80 transition-colors discard-btn" />
-            <q-btn flat unelevated label="Save" no-caps
-              class="flex-1 py-3 hover:bg-purple-700  transition-colors save-btn" />
+            <q-btn flat outline label="Discard"
+              class="flex-1 py-3 !rounded-xl !bg-gray-800 text-gray-400 !hover:bg-gray-800/80 transition-colors !h-12" />
+            <q-btn unelevated label="Save"
+              class="flex-1 py-3 !rounded-xl !bg-purple-600 text-white !hover:bg-purple-700 transition-colors !h-12" />
           </div>
-
-
-
         </div>
       </div>
     </q-page-container>
@@ -123,21 +120,6 @@ const goBack = () => {
 <style scoped>
 ::v-deep(.q-bar) {
   background: none;
-}
-
-::v-deep(.discard-btn) {
-  background-color: #1f2937 !important;
-  color: #9ca3af !important;
-  height: 48px;
-  border-radius: 12px;
-}
-
-::v-deep(.save-btn) {
-  background-color: #6b21a8 !important;
-  /* Tailwind purple-600 */
-  color: white !important;
-  height: 48px;
-  border-radius: 12px;
 }
 
 .track-symptoms-page {
