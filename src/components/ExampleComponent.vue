@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{ title }}</p>
+    <p>{{ title }}s</p>
     <ul>
       <li v-for="todo in todos" :key="todo.id" @click="increment" class="bg-purple-600">
         {{ todo.id }} - {{ todo.content }}
