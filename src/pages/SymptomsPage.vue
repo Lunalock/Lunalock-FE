@@ -42,79 +42,74 @@ const goBack = () => {
 </script>
 
 <template>
-  <q-layout>
-    <q-bar class="q-pa-md header-bar">
-      <q-btn @click="goBack" flat round icon="arrow_back" class="text-white" />
-      <q-space />
-      <div class="header-date">
-        <div class="date-display">Track Symptoms</div>
-      </div>
-      <q-space />
-      <q-btn flat round icon="check" class="text-white invisible" />
-    </q-bar>
-    <q-page-container>
-      <div class="page-container">
-        <div class="track-symptoms-page">
-          <div class="date-display-container">
-            <div class="date-item">Today</div>
-            <div class="date-item">
-              <q-input v-model="inputDate" filled type="date" class="date-picker">
-              </q-input>
-            </div>
-          </div>
-          <!-- Mood Section -->
-          <div class="section">
-            <div class="section-title">How are you feeling?</div>
-            <div class="mood-icons row q-my-md">
-              <q-btn v-for="(mood, index) in moods" :key="index" flat class="mood-button"
-                :class="{ selected: selectedMood === index }" @click="selectMood(index)">
-                <q-icon :name="mood.icon" size="32px" :style="{ color: mood.color }" />
-                <div class="mood-label">{{ mood.label }}</div>
-              </q-btn>
-            </div>
-          </div>
-          <!-- Quick Log Section -->
-          <div class="section">
-            <div class="section-title">Quick Log</div>
-            <div class="quick-log q-my-md">
-              <q-chip v-for="(symptom, index) in quickLog" :key="index" outline class="quick-log-chip">
-                {{ symptom }}
-              </q-chip>
-            </div>
-          </div>
-          <!-- Symptom Sliders -->
-          <div class="section">
-            <div class="section-title">Symptoms</div>
-            <div class="row q-my-md">
-              <q-card v-for="(symptom, index) in sliders" :key="index" class="symptom-card">
-                <div class="symptom-header">
-                  <q-icon :name="symptom.icon" class="symptom-icon text-purple-400" />
-                  {{ symptom.label }}
-                </div>
-                <q-slider v-model="symptom.value" :min="1" :max="5" snap :step="1" marker-labels
-                  class="custom-slider" />
-              </q-card>
-            </div>
-          </div>
-          <!-- Notes Section -->
-          <div class="section">
-            <div class="section-title">Notes</div>
-            <q-input v-model="notes" filled type="textarea" placeholder="Add any additional notes about your day..."
-              class="notes-input" />
-            <div class="footer-text q-mt-md q-mb-md text-purple-300">
-              Tracking regularly helps you stay in tune with your body 💜
-            </div>
-          </div>
-          <div class="flex gap-4">
-            <q-btn flat outline label="Discard"
-              class="flex-1 py-3 !rounded-xl !bg-gray-800 text-gray-400 !hover:bg-gray-800/80 transition-colors !h-12" />
-            <q-btn unelevated label="Save"
-              class="flex-1 py-3 !rounded-xl !bg-purple-600 text-white !hover:bg-purple-700 transition-colors !h-12" />
-          </div>
+  <q-bar class="q-pa-md header-bar">
+    <q-btn @click="goBack" flat round icon="arrow_back" class="text-white" />
+    <q-space />
+    <div class="header-date">
+      <div class="date-display">Track Symptoms</div>
+    </div>
+    <q-space />
+    <q-btn flat round icon="check" class="text-white invisible" />
+  </q-bar>
+  <div>
+    <div class="track-symptoms-page">
+      <div class="date-display-container">
+        <div class="date-item">Today</div>
+        <div class="date-item">
+          <q-input v-model="inputDate" filled type="date" class="date-picker">
+          </q-input>
         </div>
       </div>
-    </q-page-container>
-  </q-layout>
+      <!-- Mood Section -->
+      <div class="section">
+        <div class="section-title">How are you feeling?</div>
+        <div class="mood-icons row q-my-md">
+          <q-btn v-for="(mood, index) in moods" :key="index" flat class="mood-button"
+            :class="{ selected: selectedMood === index }" @click="selectMood(index)">
+            <q-icon :name="mood.icon" size="32px" :style="{ color: mood.color }" />
+            <div class="mood-label">{{ mood.label }}</div>
+          </q-btn>
+        </div>
+      </div>
+      <!-- Quick Log Section -->
+      <div class="section">
+        <div class="section-title">Quick Log</div>
+        <div class="quick-log q-my-md">
+          <q-chip v-for="(symptom, index) in quickLog" :key="index" outline class="quick-log-chip">
+            {{ symptom }}
+          </q-chip>
+        </div>
+      </div>
+      <!-- Symptom Sliders -->
+      <div class="section">
+        <div class="section-title">Symptoms</div>
+        <div class="row q-my-md">
+          <q-card v-for="(symptom, index) in sliders" :key="index" class="symptom-card">
+            <div class="symptom-header">
+              <q-icon :name="symptom.icon" class="symptom-icon text-purple-400" />
+              {{ symptom.label }}
+            </div>
+            <q-slider v-model="symptom.value" :min="1" :max="5" snap :step="1" marker-labels class="custom-slider" />
+          </q-card>
+        </div>
+      </div>
+      <!-- Notes Section -->
+      <div class="section">
+        <div class="section-title">Notes</div>
+        <q-input v-model="notes" filled type="textarea" placeholder="Add any additional notes about your day..."
+          class="notes-input" />
+        <div class="footer-text q-mt-md q-mb-md text-purple-300">
+          Tracking regularly helps you stay in tune with your body 💜
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <q-btn flat outline label="Discard"
+          class="flex-1 py-3 !rounded-xl !bg-gray-800 text-gray-400 !hover:bg-gray-800/80 transition-colors !h-12" />
+        <q-btn unelevated label="Save"
+          class="flex-1 py-3 !rounded-xl !bg-purple-600 text-white !hover:bg-purple-700 transition-colors !h-12" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -125,10 +120,6 @@ const goBack = () => {
 .track-symptoms-page {
   color: #fff;
   margin-bottom: 22px;
-}
-
-.page-container {
-  padding: 12px;
 }
 
 .header-bar {
