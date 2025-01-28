@@ -4,10 +4,10 @@ import FooterGroup from 'src/components/FooterGroup.vue';
 </script>
 
 <template>
-  <q-layout view="hhh lpr fFf">
+  <q-layout view="hhh lpr fFf" class="bg-gray-950 text-white">
     <HeaderTop />
 
-    <q-page-container>
+    <q-page-container class="!pb-30">
       <q-page class="q-mx-auto q-px-sm">
         <router-view /> <!-- Replace <slot /> with <router-view /> -->
       </q-page>
