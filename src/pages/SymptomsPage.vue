@@ -1,26 +1,24 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-// import { usePeriodStore } from "@/stores/periodStore";
-// import { useDateFormat } from "@vueuse/core";
 
 const router = useRouter();
-// const periodStore = usePeriodStore();
 
 const selectedMood = ref<number | null>(null);
 const notes = ref('')
-// const selectedDate = ref(periodStore.selectedDate);
 
-const formattedDate = ref('05-31-1994');
+const qTextAreaInput = (state: string, placeHolderClass: string, textClass: string) => {
+  return !state ? placeHolderClass : textClass
+}
 
-const inputDate = ref(formattedDate.value);
+const inputDate = ref('');
 
 const moods = [
-  { label: "Happy", icon: "sentiment_satisfied_alt", color: "#FFD700" }, // Yellow
-  { label: "Sad", icon: "sentiment_dissatisfied", color: "#1E90FF" },    // Blue
-  { label: "Tired", icon: "hotel", color: "#FFA500" },                  // Orange
-  { label: "Angry", icon: "sentiment_very_dissatisfied", color: "#FF4500" }, // Red
-  { label: "Stressed", icon: "mood_bad", color: "#800080" }             // Purple
+  { label: "Happy", icon: "sentiment_satisfied_alt", color: "#FFD700" },
+  { label: "Sad", icon: "sentiment_dissatisfied", color: "#1E90FF" },
+  { label: "Tired", icon: "hotel", color: "#FFA500" },
+  { label: "Angry", icon: "sentiment_very_dissatisfied", color: "#FF4500" },
+  { label: "Stressed", icon: "mood_bad", color: "#800080" }
 ];
 
 const quickLog = ["Cramps", "Headache", "Bloating", "Fatigue"];
@@ -42,7 +40,7 @@ const goBack = () => {
 </script>
 
 <template>
-  <q-bar class="q-pa-md header-bar">
+  <q-bar class="q-pa-md header-bar bg-transparent">
     <q-btn @click="goBack" flat round icon="arrow_back" class="text-white" />
     <q-space />
     <div>
@@ -56,7 +54,19 @@ const goBack = () => {
       <div class="flex justify-between align">
         <div class="content-center">Today</div>
         <div>
-          <q-input v-model="inputDate" filled type="date" class="!bg-gray-900">
+          <q-input filled v-model="inputDate" mask="date"
+            :input-class="qTextAreaInput(notes, '!text-white/50', '!text-white')" class="!bg-gray-900 !text-white">
+            <template v-slot:append>
+              <q-icon name="event" class="cursor-pointer text-white/50">
+                <q-popup-proxy cover transition-show="scale" transition-hide="scale">
+                  <q-date v-model="inputDate" class="!bg-gray-900 !text-white">
+                    <div class="row items-center justify-end">
+                      <q-btn v-close-popup label="Close" color="primary" flat />
+                    </div>
+                  </q-date>
+                </q-popup-proxy>
+              </q-icon>
+            </template>
           </q-input>
         </div>
       </div>
@@ -97,8 +107,9 @@ const goBack = () => {
 
       <div class="">
         <div class="font-bold text-xl">Notes</div>
-        <q-input v-model="notes" filled type="textarea" placeholder="Add any additional notes about your day..."
-          class=" !bg-gray-900 " />
+        <q-input :input-class="qTextAreaInput(notes, '!text-white/50', '!text-white')" v-model="notes" filled
+          type="textarea" placeholder="Add any additional notes about your day..." class=" !bg-gray-900 !text-white"
+          color="deep-purple-5" />
         <div class=" q-mt-md q-mb-md text-purple-300">
           Tracking regularly helps you stay in tune with your body 💜
         </div>
@@ -113,12 +124,4 @@ const goBack = () => {
   </div>
 </template>
 
-<style scoped>
-:deep(.q-field__native) {
-  color: #ffffff !important;
-}
-
-:deep(.q-field__native::placeholder) {
-  color: rgba(255, 255, 255, 0.5);
-}
-</style>
+<style scoped></style>

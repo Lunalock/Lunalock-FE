@@ -6,7 +6,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        darkFooterBg: '#ff0000',
+        // This is an example of how to set a custom color name
+        // darkFooterBg: '#ff0000',
       },
     },
   },
