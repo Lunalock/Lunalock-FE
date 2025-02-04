@@ -84,7 +84,7 @@
 // App.tsx
 import React from 'react';
 import { SafeAreaView, ScrollView, View, Text, TouchableOpacity } from 'react-native';
-import { Provider as PaperProvider, Button } from 'react-native-paper';
+import { Provider as PaperProvider, Button, Text as PText } from 'react-native-paper';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 // A helper type for our calendar day data
@@ -129,6 +129,13 @@ export default function App() {
           {/* Header */}
           <View className="px-4 py-6 flex-row items-center justify-between">
             <Text className="text-2xl font-bold text-white">LunaLock</Text>
+            <TouchableOpacity className="p-2 rounded-full bg-gray-800">
+              <FontAwesome5 name="gear" size={20} color="#D1D5DB" />
+            </TouchableOpacity>
+          </View>
+
+          <View className="px-4 py-6 flex-row items-center justify-between">
+            <PText className="text-2xl">LunaLock</PText>
             <TouchableOpacity className="p-2 rounded-full bg-gray-800">
               <FontAwesome5 name="gear" size={20} color="#D1D5DB" />
             </TouchableOpacity>
