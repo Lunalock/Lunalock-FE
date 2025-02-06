@@ -1,72 +1,94 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from "react-native";
+import { Entypo, FontAwesome5 } from "@expo/vector-icons";
+import { verifyInstallation } from "nativewind";
+import { GsBox, GsText } from "@/components/gs-components";
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { verifyInstallation } from 'nativewind';
-import { GsText } from '@/components/gs-components';
+interface StatItem {
+  label: string;
+  date: string;
+  subtext: string;
+  bgColor?: string;
+  iconHtml: any; 
+}
+
+const statsData: StatItem[] = [
+  {
+    label: "Next Period",
+    date: "Mar 15, 2025",
+    subtext: "In 7 days",
+    bgColor: "bg-gradient-to-r from-red-800 to-red-700",
+    iconHtml: (
+      <FontAwesome5
+        name={"calendar"}
+        size={28}
+        color={"#fff"}
+        className="absolute right-12 top-1/2 -translate-y-1/2"
+      />
+    ),
+  },
+  {
+    label: "Ovulation Day",
+    date: "Mar 1, 2025",
+    subtext: "High Fertility",
+    bgColor: "bg-gradient-to-r from-purple-800 to-purple-500", 
+    iconHtml: (
+      <FontAwesome5
+        name={"egg"}
+        size={28}
+        color={"#fff"}
+        className="absolute right-12 top-1/2 -translate-y-1/2"
+      />
+    ),
+  },
+  {
+    label: "Cycle Length",
+    date: "28 Days",
+    subtext: "Regular", 
+    bgColor: "bg-gradient-to-r from-blue-800 to-blue-500", 
+    iconHtml: (
+      <Entypo
+        name={"cycle"}
+        size={28}
+        color={"#fff"}
+        className="absolute right-12 top-1/2 -translate-y-1/2"
+      />
+    ),
+  },
+];
 
 export default function HomeScreen() {
-  verifyInstallation()
-  
+  verifyInstallation();
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
+    <GsBox className="w-full pb-4 px-3">
+      {statsData.map((stat) => (
+        <GsBox
+          key={stat.label}
+          className={`relative p-4 rounded-xl shadow-lg mb-4 ${stat.bgColor}`}
+        >
+          {/* Left side text */}
+          <GsBox className="flex flex-col gap-1 w-[70%]">
+            <GsText className="text-sm font-semibold opacity-85">
+              {stat.label}
+            </GsText>
 
-      <GsText className="text-red-500">Hello</GsText>
+            <GsText className="text-xl font-bold">{stat.date}</GsText>
 
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+            <GsText className="text-sm opacity-75">{stat.subtext}</GsText>
+          </GsBox>
+
+          {/* Icon on the right */}
+          {stat.iconHtml}
+        </GsBox>
+      ))}
+    </GsBox>
   );
 }
 
 const styles = StyleSheet.create({
   titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: 8,
   },
   stepContainer: {
@@ -78,6 +100,6 @@ const styles = StyleSheet.create({
     width: 290,
     bottom: 0,
     left: 0,
-    position: 'absolute',
+    position: "absolute",
   },
 });
