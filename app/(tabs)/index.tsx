@@ -60,8 +60,6 @@ const statsData: StatItem[] = [
 ];
 
 export default function HomeScreen() {
-  verifyInstallation();
-
   return (
     <ScrollView>
       <GsBox className="w-full pb-4 pt-4 px-3">

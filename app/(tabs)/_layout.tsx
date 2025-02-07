@@ -1,27 +1,24 @@
 import { Tabs } from "expo-router";
-import React from "react";
+import React, { ReactNode } from "react";
 import { Platform } from "react-native";
-import { FontAwesome } from "@expo/vector-icons"; // <-- import FontAwesome
+import { FontAwesome } from "@expo/vector-icons";
 import { HapticTab } from "@/components/HapticTab";
 import TabBarBackground from "@/components/ui/TabBarBackground";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { CustomHeader } from "@/components/ui/CustomHeader";
 
-type MyAllowedIcons = "home" | "bar-chart" | "plus-circle" | "cog";
+type Icons = "home" | "bar-chart" | "plus-circle" | "cog";
 
-type TabProps = {
-  icon: MyAllowedIcons;
+type Tab = {
+  icon: Icons;
   name: string;
   headerShown?: boolean;
-  customHeader?: any;
+  customHeader?: () => ReactNode;
 }
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
-  // Match each icon name to the route name
-  const tabs: TabProps[] = [
+  const tabs: Tab[] = [
     {
       icon: "home",
       name: "index",
@@ -36,7 +33,6 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         headerShown: true,
         tabBarButton: HapticTab,
         tabBarShowLabel: false,
