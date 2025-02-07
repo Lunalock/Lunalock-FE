@@ -2,13 +2,16 @@ import { StyleSheet } from "react-native";
 import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 import { verifyInstallation } from "nativewind";
 import { GsBox, GsText } from "@/components/gs-components";
+import React from "react";
+import { Calendar } from "react-native-calendars";
+import { ScrollView } from "react-native";
 
 interface StatItem {
   label: string;
   date: string;
   subtext: string;
   bgColor?: string;
-  iconHtml: any; 
+  iconHtml: any;
 }
 
 const statsData: StatItem[] = [
@@ -30,7 +33,7 @@ const statsData: StatItem[] = [
     label: "Ovulation Day",
     date: "Mar 1, 2025",
     subtext: "High Fertility",
-    bgColor: "bg-gradient-to-r from-purple-800 to-purple-500", 
+    bgColor: "bg-gradient-to-r from-purple-800 to-purple-500",
     iconHtml: (
       <FontAwesome5
         name={"egg"}
@@ -43,8 +46,8 @@ const statsData: StatItem[] = [
   {
     label: "Cycle Length",
     date: "28 Days",
-    subtext: "Regular", 
-    bgColor: "bg-gradient-to-r from-blue-800 to-blue-500", 
+    subtext: "Regular",
+    bgColor: "bg-gradient-to-r from-blue-800 to-blue-500",
     iconHtml: (
       <Entypo
         name={"cycle"}
@@ -60,28 +63,32 @@ export default function HomeScreen() {
   verifyInstallation();
 
   return (
-    <GsBox className="w-full pb-4 px-3">
-      {statsData.map((stat) => (
-        <GsBox
-          key={stat.label}
-          className={`relative p-4 rounded-xl shadow-lg mb-4 ${stat.bgColor}`}
-        >
-          {/* Left side text */}
-          <GsBox className="flex flex-col gap-1 w-[70%]">
-            <GsText className="text-sm font-semibold opacity-85">
-              {stat.label}
-            </GsText>
+    <ScrollView>
+      <GsBox className="w-full pb-4 pt-4 px-3">
+        {statsData.map((stat) => (
+          <GsBox
+            key={stat.label}
+            className={`relative p-4 rounded-xl shadow-lg mb-4 ${stat.bgColor}`}
+          >
+            <GsBox className="flex flex-col gap-1 w-[70%]">
+              <GsText className="text-sm font-semibold opacity-85">
+                {stat.label}
+              </GsText>
 
-            <GsText className="text-xl font-bold">{stat.date}</GsText>
+              <GsText className="text-xl font-bold">{stat.date}</GsText>
 
-            <GsText className="text-sm opacity-75">{stat.subtext}</GsText>
+              <GsText className="text-sm opacity-75">{stat.subtext}</GsText>
+            </GsBox>
+            {stat.iconHtml}
           </GsBox>
-
-          {/* Icon on the right */}
-          {stat.iconHtml}
+        ))}
+        <GsBox className="rounded-xl overflow-hidden mb-4">
+          <Calendar
+            onDayPress={(day:any) => console.log(day)}
+          />
         </GsBox>
-      ))}
-    </GsBox>
+      </GsBox>
+    </ScrollView>
   );
 }
 
