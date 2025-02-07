@@ -5,6 +5,7 @@ import { GsBox, GsText } from "@/components/gs-components";
 import React from "react";
 import { Calendar } from "react-native-calendars";
 import { ScrollView } from "react-native";
+import { Theme } from "@/constants/Theme";
 
 interface StatItem {
   label: string;
@@ -80,8 +81,16 @@ export default function HomeScreen() {
             {stat.iconHtml}
           </GsBox>
         ))}
-        <GsBox className="rounded-xl overflow-hidden mb-4">
+        <GsBox className="rounded-xl overflow-hidden mb-4 bg-gray-900">
           <Calendar
+            theme={{
+              calendarBackground: Theme.colors.dark.background,
+              // textSectionTitleColor: 'red',
+              selectedDayBackgroundColor: 'red',
+              selectedDayTextColor: 'red',
+              todayTextColor: 'red',
+              // dayTextColor: 'red',
+            }}
             onDayPress={(day:any) => console.log(day)}
           />
         </GsBox>
