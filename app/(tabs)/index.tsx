@@ -6,6 +6,7 @@ import React from "react";
 import { Calendar } from "react-native-calendars";
 import { ScrollView } from "react-native";
 import { Theme } from "@/constants/Theme";
+import { useTheme } from "@/hooks/useTheme";
 
 interface StatItem {
   label: string;
@@ -61,6 +62,10 @@ const statsData: StatItem[] = [
 ];
 
 export default function HomeScreen() {
+  const theme = useTheme()
+
+  console.log(theme)
+  
   return (
     <ScrollView>
       <GsBox className="w-full pb-4 pt-4 px-3">
@@ -83,15 +88,10 @@ export default function HomeScreen() {
         ))}
         <GsBox className="rounded-xl overflow-hidden mb-4 bg-gray-900">
           <Calendar
-            theme={{
-              calendarBackground: Theme.colors.dark.background,
-              // textSectionTitleColor: 'red',
-              selectedDayBackgroundColor: 'red',
-              selectedDayTextColor: 'red',
-              todayTextColor: 'red',
-              // dayTextColor: 'red',
-            }}
             onDayPress={(day:any) => console.log(day)}
+            theme={{
+              calendarBackground: `rgb(${theme.colors['--color-background-0']})`
+            }}
           />
         </GsBox>
       </GsBox>

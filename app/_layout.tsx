@@ -7,21 +7,17 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 import "@/assets/css/global.css"
-import { useColorScheme } from '@/hooks/useColorScheme';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Theme } from '@/constants/Theme';
+import { ThemeProvider } from '@react-navigation/native';
+import { useTheme } from '@/hooks/useTheme';
 
 SplashScreen.preventAutoHideAsync();
-
-const themes = {
-  rnDarkTheme: { ...DarkTheme, colors: { ...DarkTheme.colors, ...Theme.colors.dark }},
-  rnLightTheme: { ...DefaultTheme, colors: { ...DefaultTheme.colors, ...Theme.colors.light }},
-}
 
 export default function RootLayout() {
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
+
+  const theme = useTheme()
 
   useEffect(() => {
     if (loaded) {
@@ -34,8 +30,8 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={themes.rnDarkTheme}>
-      <GluestackUIProvider mode="dark">
+    <ThemeProvider value={theme}>
+      <GluestackUIProvider mode={theme.dark ? "dark" : "light"}>
           <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="+not-found" />

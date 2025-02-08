@@ -1,11 +1,12 @@
-import { Colors } from "./Colors";
+// import { Colors } from "./Colors";
+import { config as colors } from "@/components/ui/gluestack-ui-provider/config"
 
 export const Theme = {
     borderRadius: {
         xs: 3,
         sm: 5,
     },
-    colors: { ...Colors },
+    colors: { ...colors },
     spacing: {
         xs: 4,
         sm: 8,
