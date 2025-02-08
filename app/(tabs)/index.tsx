@@ -5,6 +5,7 @@ import { GsBox, GsText } from "@/components/gs-components";
 import React from "react";
 import { Calendar } from "react-native-calendars";
 import { ScrollView } from "react-native";
+import { Link } from "expo-router";
 
 interface StatItem {
   label: string;
@@ -62,7 +63,8 @@ const statsData: StatItem[] = [
 export default function HomeScreen() {
   return (
     <ScrollView>
-      <GsBox className="w-full pb-4 pt-4 px-3">
+      <GsBox>
+      {/* <GsBox className="w-full pb-4 pt-4 px-3"> */}
         {statsData.map((stat) => (
           <GsBox
             key={stat.label}
@@ -84,7 +86,8 @@ export default function HomeScreen() {
           <Calendar
             onDayPress={(day:any) => console.log(day)}
           />
-        </GsBox>
+        </GsBox>c
+        <Link href={'/(tabs)/settings?foo=bingbong'}>test</Link>
       </GsBox>
     </ScrollView>
   );

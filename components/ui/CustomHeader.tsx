@@ -3,12 +3,17 @@ import { SafeAreaView, View, Text, Pressable } from 'react-native';
 // If you want to replicate the "notifications" icon from Material Icons
 import { MaterialIcons } from '@expo/vector-icons';
 
-export function CustomHeader() {
+type Props = {
+  message: string
+}
+
+export function CustomHeader({message}: Props) {
+  
   return (
-    <SafeAreaView className="bg-transparent w-full max-w-[1080px] mx-auto px-4">
+    <SafeAreaView className="bg-transparent w-full max-w-[1080px] mx-auto -px-4">
       <View className="flex-row items-center justify-between mt-4 mb-4">
         <Text className="text-2xl font-bold text-pink-300">
-          LunaLock
+          { message }
         </Text>
 
         <Pressable onPress={() => console.log('Notifications tapped')}>

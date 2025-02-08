@@ -1,6 +1,6 @@
 import { Tabs } from "expo-router";
 import React, { ReactNode } from "react";
-import { Platform } from "react-native";
+import { Platform, SafeAreaView } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { HapticTab } from "@/components/HapticTab";
 import TabBarBackground from "@/components/ui/TabBarBackground";
@@ -23,11 +23,11 @@ export default function TabLayout() {
       icon: "home",
       name: "index",
       headerShown: true,
-      customHeader: () => <CustomHeader />,
+      customHeader: () => <CustomHeader message="LunasLock" />,
     },
-    { icon: "bar-chart", name: "stats" },
-    { icon: "plus-circle", name: "symptomsPage" },
-    { icon: "cog", name: "settings" },
+    { icon: "bar-chart", name: "stats",  },
+    { icon: "plus-circle", name: "symptomsPage", },
+    { icon: "cog", name: "settings", },
   ];
 
   return (
@@ -51,6 +51,7 @@ export default function TabLayout() {
           name={tab.name}
           options={{
             title: tab.name,
+            sceneStyle: {paddingHorizontal: 16}, // Set to theme spacing md
             header: tab?.customHeader,
             headerShown: tab.headerShown ?? false,
             tabBarIcon: ({ color }) => (
