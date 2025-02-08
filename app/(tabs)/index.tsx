@@ -86,7 +86,7 @@ export default function HomeScreen() {
           <Calendar
             onDayPress={(day:any) => console.log(day)}
           />
-        </GsBox>c
+        </GsBox>
         <Link href={'/(tabs)/settings?foo=bingbong'}>test</Link>
       </GsBox>
     </ScrollView>

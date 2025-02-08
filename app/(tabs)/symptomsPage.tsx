@@ -56,7 +56,7 @@ const TrackSymptomsScreen: React.FC = () => {
 
   return (
       <GsBox>
-        test
+        <GsText>test</GsText>
       </GsBox>
   );
 };
