@@ -1,18 +1,10 @@
 import { StyleSheet } from "react-native";
 import { Entypo, FontAwesome5 } from "@expo/vector-icons";
-import { verifyInstallation } from "nativewind";
 import { GsBox, GsText } from "@/components/gs-components";
 import React from "react";
 import { Calendar } from "react-native-calendars";
 import { ScrollView } from "react-native";
-
-interface StatItem {
-  label: string;
-  date: string;
-  subtext: string;
-  bgColor?: string;
-  iconHtml: any;
-}
+import { useTheme } from "@/hooks/useTheme";
 
 const statsData: StatItem[] = [
   {
@@ -60,6 +52,8 @@ const statsData: StatItem[] = [
 ];
 
 export default function HomeScreen() {
+  const theme = useTheme()
+
   return (
     <ScrollView>
       <GsBox className="w-full pb-4 pt-4 px-3">
@@ -80,9 +74,12 @@ export default function HomeScreen() {
             {stat.iconHtml}
           </GsBox>
         ))}
-        <GsBox className="rounded-xl overflow-hidden mb-4">
+        <GsBox className="rounded-xl overflow-hidden mb-4 bg-gray-900">
           <Calendar
             onDayPress={(day:any) => console.log(day)}
+            theme={{
+              calendarBackground: `rgb(${theme.colors["--color-background-0"]})`
+            }}
           />
         </GsBox>
       </GsBox>
@@ -108,3 +105,11 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
 });
+
+interface StatItem {
+  label: string;
+  date: string;
+  subtext: string;
+  bgColor?: string;
+  iconHtml: any;
+}
