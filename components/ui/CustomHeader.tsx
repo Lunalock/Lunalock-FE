@@ -5,7 +5,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export function CustomHeader() {
   return (
-    <View className="flex-row items-center justify-between mt-4 mb-4">
+    <View className="flex-row items-center justify-between my-4 px-7">
       <Text className="text-2xl font-bold text-pink-300">
         LunaLock
       </Text>
