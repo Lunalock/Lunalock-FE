@@ -9,6 +9,7 @@ import 'react-native-reanimated';
 import "@/assets/css/global.css"
 import { ThemeProvider } from '@react-navigation/native';
 import { useTheme } from '@/hooks/useTheme';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -32,11 +33,17 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={theme}>
       <GluestackUIProvider mode={theme.dark ? "dark" : "light"}>
+        <SafeAreaView style={{ flex: 1 }}>
           <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="+not-found" />
           </Stack>
-          <StatusBar style="auto" />
+          
+          <StatusBar
+            style={theme.dark ? "light" : "dark"}
+            backgroundColor={theme.colors.background}
+          />
+        </SafeAreaView>
       </GluestackUIProvider>
     </ThemeProvider>
   );

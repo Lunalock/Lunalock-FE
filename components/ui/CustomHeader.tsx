@@ -5,16 +5,14 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export function CustomHeader() {
   return (
-    <SafeAreaView className="bg-transparent w-full max-w-[1080px] mx-auto px-4">
-      <View className="flex-row items-center justify-between mt-4 mb-4">
-        <Text className="text-2xl font-bold text-pink-300">
-          LunaLock
-        </Text>
+    <View className="flex-row items-center justify-between mt-4 mb-4">
+      <Text className="text-2xl font-bold text-pink-300">
+        LunaLock
+      </Text>
 
-        <Pressable onPress={() => console.log('Notifications tapped')}>
-          <MaterialIcons name="notifications" size={24} color="#333" />
-        </Pressable>
-      </View>
-    </SafeAreaView>
+      <Pressable onPress={() => console.log('Notifications tapped')}>
+        <MaterialIcons name="notifications" size={24} color="#333" />
+      </Pressable>
+    </View>
   );
 }
