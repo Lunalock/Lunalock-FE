@@ -1,7 +1,6 @@
-import { StyleSheet } from "react-native";
+import React from "react";
 import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 import { GsBox, GsText } from "@/components/gs-components";
-import React from "react";
 import { Calendar } from "react-native-calendars";
 import { ScrollView } from "react-native";
 import { useTheme } from "@/hooks/useTheme";
