@@ -153,6 +153,18 @@ export const config = {
     '--color-indicator-primary': '55 55 55',
     '--color-indicator-info': '83 153 236',
     '--color-indicator-error': '185 28 28',
+
+    /* Next Period Gradient */
+    '--gradient-next-period-start': '106 27 26', 
+    '--gradient-next-period-end': '198 40 40',   
+    
+    /* Ovulation Day Gradient */
+    '--gradient-ovulation-start': '69 39 160',   
+    '--gradient-ovulation-end': '126 87 194',     
+    
+    /* Cycle Length Gradient */
+    '--gradient-cycle-start': '21 101 192',        
+    '--gradient-cycle-end': '66 165 245',    
   }),
   dark: vars({
     '--color-primary-0': '166 166 166',
@@ -305,5 +317,17 @@ export const config = {
     '--color-indicator-primary': '247 247 247',
     '--color-indicator-info': '161 199 245',
     '--color-indicator-error': '232 70 69',
+
+      /* Next Period Gradient */
+    '--gradient-next-period-start': '106 27 26', 
+    '--gradient-next-period-end': '198 40 40',   
+
+    /* Ovulation Day Gradient */
+    '--gradient-ovulation-start': '69 39 160',   
+    '--gradient-ovulation-end': '126 87 194',     
+
+    /* Cycle Length Gradient */
+    '--gradient-cycle-start': '#000000',        
+    '--gradient-cycle-end': '#fff',  
   }),
 };
