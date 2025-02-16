@@ -174,4 +174,11 @@ type GluestackThemeColorKeys =
   | "--color-background-info"
   | "--color-indicator-primary"
   | "--color-indicator-info"
-  | "--color-indicator-error";
+  | "--color-indicator-error"
+  | "--gradient-next-period-start"
+  | "--gradient-next-period-end"
+  | "--gradient-ovulation-start"  
+  | "--gradient-ovulation-end"
+  | "--gradient-cycle-start"      
+  | "--gradient-cycle-end" 
+  ;
