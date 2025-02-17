@@ -7,6 +7,7 @@ import TabBarBackground from "@/components/ui/TabBarBackground";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { CustomHeader } from "@/components/ui/CustomHeader";
+import { LLThemeProvider } from "@/providers/LLThemeProvider";
 
 type Icons = "home" | "bar-chart" | "plus-circle" | "cog";
 
