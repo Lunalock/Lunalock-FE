@@ -34,11 +34,7 @@ const LLDarkTheme = {
 
 // Customize this for light theme when we decide to support it
 const LLLightTheme = {
-    ...DefaultTheme,
-    ...themeTokens,
-    colors: {
-        ...DefaultTheme.colors
-    }
+    ...LLDarkTheme
 }
 
 const LLThemeConfig = {
