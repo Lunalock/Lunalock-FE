@@ -47,7 +47,7 @@ function ThemedApp() {
         </Stack>
 
         <StatusBar
-          style={currentTheme.dark ? "light" : "dark"}
+          style={currentTheme.dark ? "light" : "light"}
           backgroundColor={currentTheme.colors.background}
         />
       </SafeAreaView>
