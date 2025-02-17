@@ -1,10 +1,9 @@
 import { StyleSheet } from "react-native";
 import { Entypo, FontAwesome5 } from "@expo/vector-icons";
-import { GsBox, GsText } from "@/components/gs-components";
 import React from "react";
 import { Calendar } from "react-native-calendars";
 import { ScrollView } from "react-native";
-import { useTheme } from "@/hooks/useTheme";
+import { useLLTheme } from "@/providers/LLThemeProvider";
 
 const statsData: StatItem[] = [
   {
@@ -52,37 +51,16 @@ const statsData: StatItem[] = [
 ];
 
 export default function HomeScreen() {
-  const theme = useTheme()
+  const { currentTheme } = useLLTheme()
 
   return (
     <ScrollView>
-      <GsBox className="w-full pb-4 pt-4 px-3">
-        {statsData.map((stat) => (
-          <GsBox
-            key={stat.label}
-            className={`relative p-4 rounded-xl shadow-lg mb-4 ${stat.bgColor}`}
-          >
-            <GsBox className="flex flex-col gap-1 w-[70%]">
-              <GsText className="text-sm font-semibold opacity-85">
-                {stat.label}
-              </GsText>
-
-              <GsText className="text-xl font-bold">{stat.date}</GsText>
-
-              <GsText className="text-sm opacity-75">{stat.subtext}</GsText>
-            </GsBox>
-            {stat.iconHtml}
-          </GsBox>
-        ))}
-        <GsBox className="rounded-xl overflow-hidden mb-4 bg-gray-900">
-          <Calendar
-            onDayPress={(day:any) => console.log(day)}
-            theme={{
-              calendarBackground: `rgb(${theme.colors["--color-background-0"]})`
-            }}
-          />
-        </GsBox>
-      </GsBox>
+      <Calendar
+        onDayPress={(day:any) => console.log(day)}
+        theme={{
+          calendarBackground: currentTheme.colors.border
+        }}
+      />
     </ScrollView>
   );
 }
