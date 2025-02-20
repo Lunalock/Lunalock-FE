@@ -1,4 +1,5 @@
 import { DarkTheme, DefaultTheme, Theme } from "@react-navigation/native"
+import { Colors } from "./Colors"
 
 const themeTokens = {
     borderRadius: {
@@ -28,6 +29,7 @@ const LLDarkTheme = {
     ...themeTokens,
     colors: {
         ...DarkTheme.colors,
+        ...Colors
         // Add dark theme colors in here as necessary
     }
 }

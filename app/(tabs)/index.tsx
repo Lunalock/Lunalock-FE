@@ -5,51 +5,6 @@ import { Calendar } from "react-native-calendars";
 import { ScrollView } from "react-native";
 import { useLLTheme } from "@/providers/LLThemeProvider";
 
-const statsData: StatItem[] = [
-  {
-    label: "Next Period",
-    date: "Mar 15, 2025",
-    subtext: "In 7 days",
-    bgColor: "bg-gradient-to-r from-red-800 to-red-700",
-    iconHtml: (
-      <FontAwesome5
-        name={"calendar"}
-        size={28}
-        color={"#fff"}
-        className="absolute right-12 top-1/2 -translate-y-1/2"
-      />
-    ),
-  },
-  {
-    label: "Ovulation Day",
-    date: "Mar 1, 2025",
-    subtext: "High Fertility",
-    bgColor: "bg-gradient-to-r from-purple-800 to-purple-500",
-    iconHtml: (
-      <FontAwesome5
-        name={"egg"}
-        size={28}
-        color={"#fff"}
-        className="absolute right-12 top-1/2 -translate-y-1/2"
-      />
-    ),
-  },
-  {
-    label: "Cycle Length",
-    date: "28 Days",
-    subtext: "Regular",
-    bgColor: "bg-gradient-to-r from-blue-800 to-blue-500",
-    iconHtml: (
-      <Entypo
-        name={"cycle"}
-        size={28}
-        color={"#fff"}
-        className="absolute right-12 top-1/2 -translate-y-1/2"
-      />
-    ),
-  },
-];
-
 export default function HomeScreen() {
   const { currentTheme } = useLLTheme()
 
