@@ -1,13 +1,20 @@
 import { LLThemeConfig } from "@/constants/Theme";
+import { StyleSheet } from "react-native";
 
 function generateGlobalStyles(theme: typeof LLThemeConfig.light | typeof LLThemeConfig.dark) {
-    return {
+    return StyleSheet.create({
         marginXl: {
-            margin: theme.spacing.xl
+            margin: theme.spacing.xl,
+        },
+        colorRed: {
+            backgroundColor: 'red'
+        },
+        colorBlue: {
+            backgroundColor: 'blue'
         }
-    } as const
+    });
 }
 
-type GlobalStyles = ReturnType<typeof generateGlobalStyles>
+type GlobalStyles = ReturnType<typeof generateGlobalStyles>;
 
-export { generateGlobalStyles, type GlobalStyles }
+export { generateGlobalStyles, type GlobalStyles };

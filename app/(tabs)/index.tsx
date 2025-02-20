@@ -57,7 +57,7 @@ export default function HomeScreen() {
 
   return (
     <ScrollView>
-      <Text style={{ ...globalStyles.marginXl, color: "white" }}>
+      <Text style={ [globalStyles.marginXl, {color: "white"}] }>
         Delete this test Text after merged
       </Text>
       
