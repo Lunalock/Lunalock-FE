@@ -8,6 +8,7 @@ import { ThemeProvider } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LLThemeProvider, useLLTheme } from "@/providers/LLThemeProvider";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { GlobalStylesProvider } from "@/providers/GlobalStylesProvider";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -40,17 +41,19 @@ function ThemedApp() {
 
   return (
     <ThemeProvider value={currentTheme}>
-      <SafeAreaView style={{ flex: 1 }}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-        </Stack>
+      <GlobalStylesProvider currentTheme={currentTheme}>
+        <SafeAreaView style={{ flex: 1 }}>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="+not-found" />
+          </Stack>
 
-        <StatusBar
-          style={currentTheme.dark ? "light" : "light"}
-          backgroundColor={currentTheme.colors.background}
-        />
-      </SafeAreaView>
+          <StatusBar
+            style={currentTheme.dark ? "light" : "light"}
+            backgroundColor={currentTheme.colors.background}
+          />
+        </SafeAreaView>
+      </GlobalStylesProvider>
     </ThemeProvider>
   );
 }

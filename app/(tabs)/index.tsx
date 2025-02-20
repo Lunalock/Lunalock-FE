@@ -1,9 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 import React from "react";
 import { Calendar } from "react-native-calendars";
 import { ScrollView } from "react-native";
 import { useLLTheme } from "@/providers/LLThemeProvider";
+import { useGlobalStyles } from "@/providers/GlobalStylesProvider";
 
 const statsData: StatItem[] = [
   {
@@ -52,9 +53,14 @@ const statsData: StatItem[] = [
 
 export default function HomeScreen() {
   const { currentTheme } = useLLTheme()
+  const { globalStyles } = useGlobalStyles()
 
   return (
     <ScrollView>
+      <Text style={ [globalStyles.marginXl, {color: "white"}] }>
+        Delete this test Text after merged
+      </Text>
+      
       <Calendar
         onDayPress={(day:any) => console.log(day)}
         theme={{
