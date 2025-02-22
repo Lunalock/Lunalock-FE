@@ -5,9 +5,8 @@ import { FontAwesome } from "@expo/vector-icons";
 import { HapticTab } from "@/components/HapticTab";
 import TabBarBackground from "@/components/ui/TabBarBackground";
 import { Colors } from "@/constants/Colors";
-import { useColorScheme } from "@/hooks/useColorScheme";
 import { CustomHeader } from "@/components/ui/CustomHeader";
-import { LLThemeProvider } from "@/providers/LLThemeProvider";
+import { useTheme } from "@react-navigation/native";
 
 type Icons = "home" | "bar-chart" | "plus-circle" | "cog";
 
@@ -19,6 +18,7 @@ type Tab = {
 }
 
 export default function TabLayout() {
+  const theme = useTheme()
   const tabs: Tab[] = [
     {
       icon: "home",
@@ -42,7 +42,7 @@ export default function TabLayout() {
           ios: {
             position: "absolute",
           },
-          default: {},
+          default: {backgroundColor: Colors.dark.tabsBg}
         }),
       }}
     >
@@ -54,6 +54,7 @@ export default function TabLayout() {
             title: tab.name,
             header: tab?.customHeader,
             headerShown: tab.headerShown ?? false,
+            sceneStyle: {marginLeft: theme.spacing.md, marginRight: theme.spacing.md},
             tabBarIcon: ({ color }) => (
               <FontAwesome name={tab.icon} size={28} color={color} />
             ),

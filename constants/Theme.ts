@@ -22,14 +22,17 @@ const themeTokens = {
     shadow: {
         elevation: 2,
     },
-}
+} as const
+
+type CustomTheme = Theme & typeof themeTokens;
 
 const LLDarkTheme = {
     ...DarkTheme,
     ...themeTokens,
     colors: {
         ...DarkTheme.colors,
-        ...Colors
+        ...Colors,
+        background: '#1e1e2a',
         // Add dark theme colors in here as necessary
     }
 }

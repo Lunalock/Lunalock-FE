@@ -1,18 +1,30 @@
 import React from 'react';
-import { SafeAreaView, View, Text, Pressable } from 'react-native';
-// If you want to replicate the "notifications" icon from Material Icons
+import { SafeAreaView, View, Text, Pressable, StyleSheet } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { Colors } from '@/constants/Colors';
 
 export function CustomHeader() {
   return (
-    <View className="flex-row items-center justify-between my-4 px-7">
-      <Text className="text-2xl font-bold text-pink-300">
-        LunaLock
-      </Text>
+    <View style={styles.header}>
+      <Text style={styles.title}>LunaLock</Text>
 
       <Pressable onPress={() => console.log('Notifications tapped')}>
-        <MaterialIcons name="notifications" size={24} color="#333" />
+        <MaterialIcons name="notifications" size={24} color="#fff" />
       </Pressable>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  header: {
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    justifyContent: 'space-between', 
+    marginVertical: 16, 
+  },
+  title: {
+    fontSize: 24, 
+    fontWeight: 'bold', 
+    color: Colors.dark.pink, 
+  },
+});
