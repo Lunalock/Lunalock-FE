@@ -66,13 +66,13 @@ export default function HomeScreen() {
           onDayPress={(day: any) => console.log(day)}
           theme={{
             calendarBackground: Colors.dark.calenderBg,
-            monthTextColor: "#FFFFFF",
-            dayTextColor: "#FFFFFF",
-            textDisabledColor: "#AAAAAA",
+            monthTextColor: Colors.dark.white,
+            dayTextColor: Colors.dark.white,
+            textDisabledColor: Colors.dark.disabledGrey,
             textMonthFontSize: 18,
             textMonthFontWeight: "bold",
-            arrowColor: "#FFFFFF",
-            todayTextColor: "#FFFFFF",
+            arrowColor: Colors.dark.white,
+            todayTextColor: Colors.dark.white,
             todayBackgroundColor: Colors.dark.bgPurple800,
             
           }}
