@@ -6,13 +6,25 @@ function generateGlobalStyles(theme: typeof LLThemeConfig.light | typeof LLTheme
         marginXl: {
             margin: theme.spacing.xl,
         },
-        colorRed: {
-            backgroundColor: 'red'
+        red800: {
+            backgroundColor: theme.colors.dark.bgRed800
         },
-        colorBlue: {
-            backgroundColor: 'blue'
-        }
-    });
+        red700: {
+            backgroundColor: theme.colors.dark.bgRed700
+        },
+        purple500: {
+            backgroundColor: theme.colors.dark.bgPurple500
+        },
+        purple800:{
+            backgroundColor: theme.colors.dark.bgPurple800
+        },
+        blue500: {
+            backgroundColor: theme.colors.dark.bgBlue500
+        },
+        blue800:{
+            backgroundColor: theme.colors.dark.bgBlue800
+        } ,
+    }); 
 }
 
 type GlobalStyles = ReturnType<typeof generateGlobalStyles>;
